@@ -1,28 +1,56 @@
+html, body, .root {
+  height: 100%;
+}
+
+body, .app {
+  background: white;
+}
+
 .App {
-  text-align: center;
+  position: relative;
+  height: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.container {
+	display: flex;
+	justify-content:center;
+	flex-direction: column;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.side-panel {
+  height: 100%;
+  padding: 10px 10px 100% 10px;
+  display: flex;
+  width: 25%;
+  background-color: #000;
 }
 
-.App-title {
-  font-size: 1.5em;
+.search-bar {
+  display: flex;
+  width: 90%;
+  height: 40px;
+  justify-content: space-around;
 }
 
-.App-intro {
-  font-size: large;
+input {
+  width:inherit;
+  border: 1px solid #d1d1d1;
+  font: bold 16px Arial;
+  padding: 6px 15px 6px 35px;
+  border-radius: 20px;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.map-container {
+  bottom:0px;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  width: 75%;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
 }
