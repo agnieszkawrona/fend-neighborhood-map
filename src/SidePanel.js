@@ -7,7 +7,6 @@ class SidePanel extends Component {
 
   state = {
     query: '',
-    searched: [],
     locations: [
       { name: "Central Cafe", location: { "lat": 51.1088921, "lng": 17.0259869 } },
       { name: "Cafe Borowka", location: { "lat": 51.10470549999999, "lng": 17.0313717 } },
@@ -27,8 +26,9 @@ class SidePanel extends Component {
 
   render() {
 
-    const { query, searched, locations } = this.state
+    const { query, locations } = this.state
 
+    let searched
     if (query) {
       const match = new RegExp(escapeRegExp(query), 'i')
       searched = locations.filter((loc) => match.test(loc.name))
@@ -51,8 +51,8 @@ class SidePanel extends Component {
         </div>
         <div className="ListView">
         <ul>
-          {this.state.locations.map((location, index) => (
-            <li key={index}>{location.name}</li>
+          {searched.map((location, index) => (
+            <li key={index}><button>{location.name}</button></li>
           ))}
         </ul>
       </div>

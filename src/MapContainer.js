@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import SidePanel from './SidePanel.js'
 
 //source: https://github.com/elharony/Udacity-P8-Neighborhood-Map-Project-Explained/blob/master/src/App.js
 function loadScript(url) {
@@ -29,6 +30,24 @@ class MapContainer extends Component {
     loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBvRX8bGhgEL2wjzo15bHKO_mpRp3z2L3c&v=3&callback=initMap")
     window.initMap = this.initMap
   }
+
+  onclickLocation = () => {
+    const that = this
+    const {infoWindow} = this.state
+
+    const displayInfowindow = (e) => {
+      const {markers} = this.state
+      const markerInd =
+        markers.findIndex(m => m.title.toLowerCase() === e.target.innerText.toLowerCase())
+      that.populateInfoWindow(markers[markerInd], infoWindow)
+    }
+    document.querySelector('.ListView').addEventListener('click', function (e) {
+      if (e.target && e.target.nodeName === "LI") {
+        displayInfowindow(e)
+      }
+    })
+  }
+
 
   initMap = () => {
     const { locations, markers } = this.state
@@ -62,6 +81,7 @@ class MapContainer extends Component {
   render() {
     return (
       <div className="MapContainer">
+        <SidePanel />
         <div id="map"></div>
       </div>
     )
