@@ -1,0 +1,162 @@
+html, body, .root {
+  height: 100%;
+}
+
+body, .app {
+  background: white;
+}
+
+.App {
+  position: relative;
+  display: flex;
+	justify-content:center;
+	flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.SidePanel {
+  padding: 10px 10px 50% 10px;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  background-color: #000;
+}
+
+.side-title {
+  color: #fff;
+  font: bold 20px Arial;
+  padding: 6px 6px 6px 6px;
+}
+
+.SearchBox {
+  display: flex;
+  width: 90%;
+  height: 40px;
+  justify-content: space-around;
+}
+
+input {
+  width: inherit;
+  border: 1px solid #d1d1d1;
+  font: bold 16px Arial;
+  padding: 6px 15px 6px 35px;
+  border-radius: 20px;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+}
+
+.ListView {
+  text-align: left;
+  color:#fff;
+  align-items: left
+}
+
+.ListView ul {
+  list-style: none;
+  left: 0px;
+  align-self: left;
+  width:inherit;
+}
+
+.MapContainer {
+  bottom:0px;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  width: 75%;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+
+  .SidePanel {
+    padding: 10px 5px 150% 5px;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .side-title {
+    font: bold 20px Arial;
+    text-align: center;
+    padding: 6px 6px 6px 6px;
+  }
+
+  .SearchBox {
+    align-self: center;
+    width: 90%;
+    height: 40px;
+    justify-content: space-around;
+    top: 0px;
+  }
+
+  .ListView {
+    text-align: left;
+    color:#fff;
+    align-items: left;
+    font: 16px Arial;
+  }
+
+  .ListView ul {
+    list-style: none;
+    left: 0px;
+    align-self: left;
+    width:inherit;
+  }
+
+  .MapContainer {
+    position: absolute;
+    height: 75%;
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .SidePanel {
+    padding: 10px 5px 150% 5px;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .side-title {
+    font: bold 16px Arial;
+    text-align: center;
+    padding: 6px 6px 6px 6px;
+  }
+
+  .SearchBox {
+    align-self: center;
+    width: 90%;
+    height: 20px;
+    justify-content: space-around;
+    top: 0px;
+  }
+
+  .ListView {
+    text-align: left;
+    color:#fff;
+    align-items: left;
+    font: 12px Arial;
+  }
+
+  .ListView ul {
+    list-style: none;
+    left: 0px;
+    align-self: left;
+    width:inherit;
+  }
+
+  .MapContainer {
+    position: absolute;
+    height: 75%;
+    width: 100%;
+  }
+
+}
