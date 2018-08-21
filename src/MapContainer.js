@@ -38,13 +38,24 @@ class MapContainer extends Component {
       zoom: 14
     })
 
+    var infoWindow = new window.google.maps.InfoWindow()
+
     this.state.locations.forEach((location, i) => {
+      
+      var locationInfo = `${this.state.locations[i].name}`
+      
       var marker = new window.google.maps.Marker({
         position: this.state.locations[i].location,
         map: map,
-        title: this.state.locations[i].name
       })
+
       markers.push(marker);
+
+      marker.addListener('click', function() {
+        infoWindow.setContent(locationInfo)
+        infoWindow.open(map, marker)
+      })
+
     })
   }
 

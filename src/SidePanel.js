@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import escapeRegExp from 'escape-string-regexp'
 
+
 class SidePanel extends Component {
 
   state = {
