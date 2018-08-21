@@ -8,24 +8,26 @@ body, .app {
 
 .App {
   position: relative;
-  height: 100%;
-}
-
-.container {
-	display: flex;
+  display: flex;
 	justify-content:center;
 	flex-direction: column;
 }
 
-.side-panel {
-  height: 100%;
-  padding: 10px 10px 100% 10px;
+.SidePanel {
+  padding: 10px 10px 50% 10px;
   display: flex;
+  flex-direction: column;
   width: 25%;
   background-color: #000;
 }
 
-.search-bar {
+.side-title {
+  color: #fff;
+  font: bold 20px Arial;
+  padding: 6px 6px 6px 6px;
+}
+
+.SearchBox {
   display: flex;
   width: 90%;
   height: 40px;
@@ -33,7 +35,7 @@ body, .app {
 }
 
 input {
-  width:inherit;
+  width: inherit;
   border: 1px solid #d1d1d1;
   font: bold 16px Arial;
   padding: 6px 15px 6px 35px;
@@ -42,7 +44,20 @@ input {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
 }
 
-.map-container {
+.ListView {
+  text-align: left;
+  color:#fff;
+  align-items: left
+}
+
+.ListView ul {
+  list-style: none;
+  left: 0px;
+  align-self: left;
+  width:inherit;
+}
+
+.MapContainer {
   bottom:0px;
   height: 100%;
   position: absolute;
