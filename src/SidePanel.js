@@ -1,40 +1,21 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import escapeRegExp from 'escape-string-regexp'
+
 
 
 class SidePanel extends Component {
 
-  state = {
-    query: '',
-    locations: [
-      { name: "Central Cafe", location: { "lat": 51.1088921, "lng": 17.0259869 } },
-      { name: "Cafe Borowka", location: { "lat": 51.10470549999999, "lng": 17.0313717 } },
-      { name: "Bema Cafe", location: { "lat": 51.1180279, "lng": 17.0401954 } },
-      { name: "Vinyl Cafe", location: { "lat": 51.1117183, "lng": 17.0326335 } },
-      { name: "Cafe Rozrusznik", location: { "lat": 51.1167135, "lng": 17.031193 } }
-    ]
-  }
-
-  updateQuery = (query) => {
-  	this.setState({ query })
-  }
-
-  clearQuery = () => {
-    this.setState({ query: '' })
+  // function that activates the location marker, which name is passed
+  activateLocation = (locationName) => {
+    const { markers } = this.props
+    markers.forEach(function (marker) {
+      marker.title === locationName ? window.google.maps.event.trigger(marker, 'click') : ''
+    })     
   }
 
   render() {
 
-    const { query, locations } = this.state
-
-    let searched
-    if (query) {
-      const match = new RegExp(escapeRegExp(query), 'i')
-      searched = locations.filter((loc) => match.test(loc.name))
-    } else {
-      searched = locations
-    }
+    const { query, searched, filteredPlaces } = this.props
 
     return (
       <div className="SidePanel">
@@ -43,16 +24,16 @@ class SidePanel extends Component {
           <input 
             type="text" 
             placeholder="Search cafes..." 
-            value={this.state.query} 
+            value={query} 
             aria-label="Search cafes"
             role="search"
-            onChange={(event) => this.updateQuery(event.target.value)}
+            onChange={(event) => searched(event.target.value)}
           />
         </div>
         <div className="ListView">
         <ul>
-          {searched.map((location, index) => (
-            <li key={index}><button>{location.name}</button></li>
+          {filteredPlaces.map((location, index) => (
+            <li key={index}><button onClick={(event) => this.activateLocation(location.name)}>{location.name}</button></li>
           ))}
         </ul>
       </div>
