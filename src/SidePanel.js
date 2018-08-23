@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-
-
 class SidePanel extends Component {
 
   // function that activates the location marker, which name is passed
@@ -14,7 +12,6 @@ class SidePanel extends Component {
   }
 
   render() {
-
     const { query, searched, filteredPlaces } = this.props
 
     return (
