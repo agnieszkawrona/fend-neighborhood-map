@@ -70,6 +70,7 @@ class MapContainer extends Component {
           '<div class="info-window-content">' +
           '<p>' + response.data.response.venues[0].name + '</p>' +
           '<p>' + response.data.response.venues[0].location.formattedAddress + '</p>' +
+          '<p class="foursquare-attribution">' + "Fetched from Foursquare" + '</p>' +
           '</div>' +
           '</div>';
 
@@ -130,7 +131,7 @@ class MapContainer extends Component {
           location={this.state.locations}
           searched={this.filterLocations.bind(this)}
         />
-        <div id="map"></div>
+        <div id="map" aria-label="map" role="map"></div>
       </div>
     )
   }

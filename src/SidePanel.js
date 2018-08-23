@@ -15,22 +15,23 @@ class SidePanel extends Component {
     const { query, searched, filteredPlaces } = this.props
 
     return (
-      <div className="SidePanel">
-        <div className="side-title">Best Cafes in Wroclaw</div>
-        <div className="SearchBox">
+      <div className="SidePanel" aria-label="sidebar" role="sidebar with search function">
+        <div className="side-title" aria-label="Best Cafes in Wroclaw">Best Cafes in Wroclaw</div>
+        <div className="SearchBox" aria-label="searchbox" role="search cafes">
           <input 
             type="text" 
             placeholder="Search cafes..." 
             value={query} 
             aria-label="Search cafes"
+            aria-role="type in cafe name"
             role="search"
             onChange={(event) => searched(event.target.value)}
           />
         </div>
-        <div className="ListView">
+        <div className="ListView" aria-label="list of cafes">
         <ul>
           {filteredPlaces.map((location, index) => (
-            <li key={index}><button onClick={(event) => this.activateLocation(location.name)}>{location.name}</button></li>
+            <li key={index}><button onClick={(event) => this.activateLocation(location.name)} aria-label="cafe button">{location.name}</button></li>
           ))}
         </ul>
       </div>
